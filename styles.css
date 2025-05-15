@@ -519,4 +519,70 @@ footer {
     .installation-steps .step {
         padding: 1.2rem;
     }
+}
+
+/* Language Switcher Styles */
+.language-switcher {
+    position: relative;
+}
+
+.language-switcher .current-lang {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.language-switcher .current-lang::after {
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 0.8em;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    min-width: 120px;
+    display: none;
+    z-index: 1000;
+}
+
+.language-switcher:hover .language-dropdown {
+    display: block;
+}
+
+.language-dropdown a {
+    display: block;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.language-dropdown a:hover {
+    background-color: #f5f5f5;
+}
+
+/* Mobile Responsive Styles for Language Switcher */
+@media (max-width: 768px) {
+    .language-dropdown {
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    .language-switcher:hover .language-dropdown {
+        display: none;
+    }
+
+    .language-switcher.active .language-dropdown {
+        display: block;
+    }
 } 

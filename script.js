@@ -75,4 +75,26 @@ document.head.insertAdjacentHTML('beforeend', `
             transform: translateY(0);
         }
     </style>
-`); 
+`);
+
+// Language Switcher Mobile Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const languageSwitcher = document.querySelector('.language-switcher');
+    const currentLang = document.querySelector('.current-lang');
+
+    if (languageSwitcher && currentLang) {
+        currentLang.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                languageSwitcher.classList.toggle('active');
+            }
+        });
+
+        // Close language dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!languageSwitcher.contains(e.target)) {
+                languageSwitcher.classList.remove('active');
+            }
+        });
+    }
+}); 
